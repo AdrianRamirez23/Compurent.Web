@@ -43,8 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bussines\AlbumBL.cs" />
+    <Compile Include="Bussines\SongsBL.cs" />
     <Compile Include="Masters\ADO\AlbumADO.cs" />
+    <Compile Include="Masters\ADO\SongsADO.cs" />
     <Compile Include="Masters\Models\Album.cs" />
+    <Compile Include="Masters\Models\Songs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToFront\Front.cs" />
   </ItemGroup>

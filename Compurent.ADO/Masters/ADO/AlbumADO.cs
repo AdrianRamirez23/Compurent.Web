@@ -27,8 +27,8 @@ namespace Compurent.ADO.Masters.ADO
                     alb.id = rdr[0] == DBNull.Value ? 0 : rdr.GetInt32(0);
                     alb.Name = rdr[1] == DBNull.Value ? "" : rdr.GetString(1).Trim();
                 }
-                return alb;
                 con.Close();
+                return alb;
             }
         }
 
@@ -48,8 +48,9 @@ namespace Compurent.ADO.Masters.ADO
                     al.Name = rdr[1] == DBNull.Value ? "" : rdr.GetString(1).Trim();
                     alb.Add(al);
                 }
-                return alb;
                 con.Close();
+                return alb;
+
             }
         }
         internal void CrearAlbum(string NombAlb)
@@ -89,8 +90,8 @@ namespace Compurent.ADO.Masters.ADO
                     alb.id = rdr[0] == DBNull.Value ? 0 : rdr.GetInt32(0);
                     alb.Name = rdr[1] == DBNull.Value ? "" : rdr.GetString(1).Trim();
                 }
-                return alb;
                 con.Close();
+                return alb;
             }
         }
         internal string EliminarAlbum(int id)

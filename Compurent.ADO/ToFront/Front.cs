@@ -35,5 +35,25 @@ namespace Compurent.ADO.ToFront
         {
            return  new AlbumBL().EliminarAlbum(id);
         }
+        public List<Songs> ListarCanciones()
+        {
+            return new SongsBL().ListarCanciones();
+        }
+        public void CrearCancion(Songs song) 
+        {
+            new SongsBL().CrearCanciones(song);
+        }
+        public Songs BuscarCancion(int id)
+        {
+            return new SongsBL().BuscarCancion(id);
+        }
+        public void EditarCancion(Songs song)
+        {
+            new SongsBL().EditarCancion(song);
+        }
+        public string EliminarCancion(int id)
+        {
+            return new SongsBL().EliminarCancion(id);
+        }
     }
 }

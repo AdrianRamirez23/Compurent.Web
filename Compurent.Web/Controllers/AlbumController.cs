@@ -27,7 +27,7 @@ namespace Compurent.Web.Controllers
             }
             catch (Exception e )
             {
-                ModelState.AddModelError("Error al crear el cliente", e.Message);
+                Request.Flash("danger", e.Message);
                 return View();
             }
         }
@@ -53,7 +53,7 @@ namespace Compurent.Web.Controllers
             }
             catch (Exception e)
             {
-
+                Request.Flash("danger", e.Message);
                 throw;
             }
         }
@@ -76,7 +76,7 @@ namespace Compurent.Web.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("Error al crear el Álbum", ex.Message);
+                Request.Flash("danger", ex.Message);
                 return View();
             }
         }
@@ -91,9 +91,9 @@ namespace Compurent.Web.Controllers
                 albu.Name = alb.Name;
                 return View(albu); 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                Request.Flash("danger", e.Message);
                 throw;
             }
         }
@@ -111,9 +111,9 @@ namespace Compurent.Web.Controllers
                 new Front().EditarAlbum(albu);
                 return RedirectToAction("ListarAlbum");
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                ModelState.AddModelError("Error al editar el Álbum", ex.Message);
+                Request.Flash("danger", e.Message);
                 throw;
             }
         }

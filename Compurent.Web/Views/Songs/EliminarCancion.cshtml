@@ -1,0 +1,40 @@
+﻿@model Compurent.Web.Models.Songs
+
+@{
+    ViewBag.Title = "EliminarCancion";
+}
+
+<h2>Eliminar Canción Seleccionada</h2>
+
+<h3>¿Está seguro que desea Eliminar esta canción?</h3>
+<div>
+    <h4>Songs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Album_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Album_id)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar Registro" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a la administración de Canciones", "Index","Songs")
+        </div>
+    }
+</div>
