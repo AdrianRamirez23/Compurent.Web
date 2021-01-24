@@ -22,7 +22,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Buscar Álbum", "Index", "Album")</li>
-                    <li>@Html.ActionLink("Administración de Álbumnes", "About", "Home")</li>
+                    <li>@Html.ActionLink("Administración de Álbumnes", "ListarAlbum", "Album")</li>
                     <li>@Html.ActionLink("Adminitración de Canciones", "Contact", "Home")</li>
                 </ul>
             </div>
@@ -39,5 +39,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

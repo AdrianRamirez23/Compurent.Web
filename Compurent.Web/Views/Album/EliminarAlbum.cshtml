@@ -1,0 +1,32 @@
+﻿@model Compurent.Web.Models.Album
+
+@{
+    ViewBag.Title = "EliminarAlbum";
+}
+
+<h2>Eliminar Album</h2>
+
+<h3>¿Está seguro que desea Eliminar este Álbum?</h3>
+<div>
+    <h4>Detalles</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar Registro" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a la administración de Albumnes", "ListarAlbum")
+        </div>
+    }
+</div>

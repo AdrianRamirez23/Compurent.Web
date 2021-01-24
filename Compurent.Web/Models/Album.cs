@@ -8,9 +8,10 @@ namespace Compurent.Web.Models
 {
     public class Album
     {
-        [Display(Name = "Código del Album")]
+        [Display(Name = "Código del Álbum")]
         public int id { get; set; }
-        [Display(Name = "Nombre del Album")]
+        [Required]
+        [Display(Name = "Nombre del Álbum")]
         public string Name { get; set; }
     }
 }

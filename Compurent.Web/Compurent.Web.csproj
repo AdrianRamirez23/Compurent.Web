@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Flash.Mvc5, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flash.Mvc5.1.0.0\lib\net46\Flash.Mvc5.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -165,6 +168,10 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Album\Index.cshtml" />
+    <Content Include="Views\Album\ListarAlbum.cshtml" />
+    <Content Include="Views\Album\AgregarAlbum.cshtml" />
+    <Content Include="Views\Album\EditarAlbum.cshtml" />
+    <Content Include="Views\Album\EliminarAlbum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

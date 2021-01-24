@@ -17,18 +17,109 @@ namespace Compurent.ADO.Masters.ADO
             Album alb = new Album();
             using (SqlConnection con = new SqlConnection(Conexion))
             {
-                string sentencia = "exec Compurent_User_Historys 1,'" + Value + "'";
+                string sentencia = "exec Compurent_User_Historys 1,'" + Value + "',''";
                 SqlCommand cmd = new SqlCommand(sentencia, con);
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
-                con.Close();
+                
                 while (rdr.Read())
                 {
                     alb.id = rdr[0] == DBNull.Value ? 0 : rdr.GetInt32(0);
                     alb.Name = rdr[1] == DBNull.Value ? "" : rdr.GetString(1).Trim();
                 }
                 return alb;
+                con.Close();
             }
+        }
+
+        internal List<Album> ListarAlbum() 
+        { 
+            List<Album> alb = new List<Album>();
+            using (SqlConnection con = new SqlConnection(Conexion))
+            {
+                string sentencia = "exec Compurent_User_Historys 2,'',''";
+                SqlCommand cmd = new SqlCommand(sentencia, con);
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Album al = new Album();
+                    al.id = rdr[0] == DBNull.Value ? 0 : rdr.GetInt32(0);
+                    al.Name = rdr[1] == DBNull.Value ? "" : rdr.GetString(1).Trim();
+                    alb.Add(al);
+                }
+                return alb;
+                con.Close();
+            }
+        }
+        internal void CrearAlbum(string NombAlb)
+        {
+            using (SqlConnection con = new SqlConnection(Conexion))
+            {
+                string sentencia = "exec Compurent_User_Historys 3,'"+NombAlb+"',''";
+                SqlCommand cmd = new SqlCommand(sentencia, con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+        internal void EditarAlbum(Album NombAlb)
+        {
+            using (SqlConnection con = new SqlConnection(Conexion))
+            {
+                string sentencia = "exec Compurent_User_Historys 4,'" + NombAlb.Name + "','"+NombAlb.id+"'";
+                SqlCommand cmd = new SqlCommand(sentencia, con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+        internal Album BuscarAlbumById(int id)
+        {
+            Album alb = new Album();
+            using (SqlConnection con = new SqlConnection(Conexion))
+            {
+                string sentencia = "exec Compurent_User_Historys 5,'','"+id+"'";
+                SqlCommand cmd = new SqlCommand(sentencia, con);
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    alb.id = rdr[0] == DBNull.Value ? 0 : rdr.GetInt32(0);
+                    alb.Name = rdr[1] == DBNull.Value ? "" : rdr.GetString(1).Trim();
+                }
+                return alb;
+                con.Close();
+            }
+        }
+        internal string EliminarAlbum(int id)
+        {
+            try
+            {
+                string respuesta = null;
+                using (SqlConnection con = new SqlConnection(Conexion))
+                {
+
+                    string sentencia = "exec Compurent_User_Historys 6,'','" + id + "'";
+                    SqlCommand cmd = new SqlCommand(sentencia, con);
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        respuesta = rdr[0] == DBNull.Value ? "" : rdr.GetString(0);
+
+                    }
+                    con.Close();
+                    return respuesta;
+                }
+            }
+            catch (Exception )
+            {
+                
+                throw;
+            }
+          
         }
     }
 }

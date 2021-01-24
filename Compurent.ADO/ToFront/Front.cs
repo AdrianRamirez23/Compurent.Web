@@ -14,5 +14,26 @@ namespace Compurent.ADO.ToFront
         {
             return new AlbumBL().BuscarAlbum(Value);
         }
+        public List<Album> ListarAlbum()
+        {
+            return new AlbumBL().ListarAlbum();
+        }
+        public void CrearAlbum(string NombAlb)
+        {
+            new AlbumBL().CrearAlbum(NombAlb);
+        }
+        public void EditarAlbum(Album NombAlb)
+        {
+            new AlbumBL().EditarAlbum(NombAlb);
+        }
+
+        public Album BuscarAlbumById(int id)
+        {
+            return new AlbumBL().BuscarAlbumById(id);
+        }
+        public string EliminarAlbum(int id)
+        {
+           return  new AlbumBL().EliminarAlbum(id);
+        }
     }
 }
