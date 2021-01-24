@@ -1,0 +1,45 @@
+﻿@model Compurent.Web.Models.Album
+
+@{
+    ViewBag.Title = "Buscar Albumnes";
+}
+
+<h2>Búsqueda de Álbumnes</h2>
+
+<div>
+    <h4>Ingresar Nombre de la Canción o Nombre del Álbum para realizar la Búsqueda</h4>
+    <hr />
+    <div >
+        <form method="get" action=@Url.Action("Index", "Album" )>
+            <div class="form-group">
+                @Html.TextBox("value", null, new
+                {
+                    placeholder = "Ingrese datos para buscar",
+                                        @class = "form-control"
+                })
+            </div>
+            <button class="btn btn-default" type="submit">Buscar</button>
+        </form>
+    </div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Regresar", "Index", "Home")
+</p>
