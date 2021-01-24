@@ -55,5 +55,21 @@ namespace Compurent.ADO.ToFront
         {
             return new SongsBL().EliminarCancion(id);
         }
+        public UserAdmin ValidarSesion(string User, string Password)
+        {
+            return new UserAdminBL().ValidarSesion(User, Password);
+        }
+        public string RegistrarUsuario(UserAdmin ussr)
+        {
+            return new UserAdminBL().RegistrarUsuario(ussr);
+        }
+        public List<PurchaseDetail> ListaPedidos(string id)
+        {
+            return new PurchaseDetailBL().ListaPedidos(id);
+        }
+        public void CrearPedido(PurchaseDetail detail)
+        {
+            new PurchaseDetailBL().CrearPedido(detail);
+        }
     }
 }

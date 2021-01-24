@@ -117,10 +117,8 @@ namespace Compurent.ADO.Masters.ADO
             }
             catch (Exception )
             {
-                
                 throw;
             }
-          
         }
     }
 }
